@@ -44,6 +44,7 @@ services:
       # Password for the mongo database
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
     # Enables the mongo service to start before the node service
+    restart: always
     depends_on:
       - mongo
   # Name of mongo service
@@ -58,8 +59,12 @@ services:
     volumes:
       # <nameOfVolume>:<directorInDocker>
       - mongoDB:/data/db
+    ports:
+      - 27018:27017
   redis:
     image: redis
+    ports:
+      - 6379:6379
 volumes:
   # Declaring the node service volume.
   nodeVolume:
