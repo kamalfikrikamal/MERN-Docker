@@ -18,7 +18,8 @@ services:
       - 3000:3000
     environment:
       # Enabling hot reload
-      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    restart: always
     depends_on:
       # Starts up the node service before starting up the react service
       - node
@@ -36,7 +37,7 @@ services:
       - .:/server:rw
       - /server/node_modules
     environment:
-      - PORT=5001
+      - PORT=${PORT}
       # For security, specify a username and password as environmental variables
       # Username for the mongo database
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}

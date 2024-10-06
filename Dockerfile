@@ -1,5 +1,5 @@
 # Sets the base image of the application to the node’s official image.
-FROM node:18
+FROM node:20
 
 # Sets the Working Directory as "/server"
 RUN mkdir -p /server

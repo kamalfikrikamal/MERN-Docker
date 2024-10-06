@@ -1,5 +1,5 @@
 # Official node image
-FROM node:18
+FROM node:20
 # Setting the working directory to "/client"
 WORKDIR /client
 

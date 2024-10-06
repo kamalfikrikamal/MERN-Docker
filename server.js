@@ -10,6 +10,7 @@ const MONGO_URI = `mongodb://${process.env.MONGO_INITDB_ROOT_USERNAME}:${process
 
 // Creating the connect function
 const connectDB = async () => {
+  mongoose.set('strictQuery', false);
   await mongoose
     .connect(MONGO_URI, {
       useNewUrlParser: true,
